@@ -24,7 +24,9 @@
             </tr>
             <tr>
               <th scope="row">Type</th>
-              <td>{{ object.type|linkify }}</td>
+              <td>
+                <span class="badge" style="color: {{ object.type.color|fgcolor }}; background-color: #{{ object.type.color }}">{{ object.type|linkify }}</span>
+              </td>
             </tr>
             <tr>
               <th scope="row">Status</th>
