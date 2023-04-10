@@ -36,9 +36,9 @@ class CircuitTypeTable(NetBoxTable):
     class Meta(NetBoxTable.Meta):
         model = CircuitType
         fields = (
-            'pk', 'id', 'name', 'circuit_count', 'description', 'slug', 'tags', 'created', 'last_updated', 'actions',
+            'pk', 'id', 'name', 'circuit_count', 'description', 'color', 'slug', 'tags', 'created', 'last_updated', 'actions',
         )
-        default_columns = ('pk', 'name', 'circuit_count', 'color', 'description', 'slug')
+        default_columns = ('pk', 'name', 'circuit_count', 'description', 'color', 'slug')
 
 
 class CircuitTable(TenancyColumnsMixin, ContactsColumnMixin, NetBoxTable):
@@ -58,6 +58,7 @@ class CircuitTable(TenancyColumnsMixin, ContactsColumnMixin, NetBoxTable):
         template_code=CIRCUITTERMINATION_LINK,
         verbose_name='Side Z'
     )
+    type = columns.ColoredLabelColumn()
     commit_rate = CommitRateColumn()
     comments = columns.MarkdownColumn()
     tags = columns.TagColumn(
