@@ -149,7 +149,7 @@ class CableTraceSVG:
                 location_label += f' / {instance.rack}'
             labels.append(location_label)
         elif instance._meta.model_name == 'circuit':
-            labels[0] = f'Circuit {instance}'
+            labels[0] = f'Circuit {instance} ({instance.type})'
             labels.append(instance.provider)
         elif instance._meta.model_name == 'circuittermination':
             if instance.xconnect_id:
