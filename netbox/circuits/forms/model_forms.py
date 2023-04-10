@@ -65,14 +65,14 @@ class CircuitTypeForm(NetBoxModelForm):
 
     fieldsets = (
         ('Circuit Type', (
-            'name', 'slug', 'description', 'tags',
+            'name', 'slug', 'color', 'description', 'tags',
         )),
     )
 
     class Meta:
         model = CircuitType
         fields = [
-            'name', 'slug', 'description', 'tags',
+            'name', 'slug', 'color', 'description', 'tags',
         ]
 
 

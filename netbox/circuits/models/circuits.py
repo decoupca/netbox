@@ -11,6 +11,8 @@ from netbox.models import (
     ChangeLoggedModel, CustomFieldsMixin, CustomLinksMixin, OrganizationalModel, PrimaryModel, TagsMixin,
 )
 from netbox.models.features import WebhooksMixin
+from utilities.choices import ColorChoices
+from utilities.fields import ColorField
 
 __all__ = (
     'Circuit',
@@ -24,6 +26,9 @@ class CircuitType(OrganizationalModel):
     Circuits can be organized by their functional role. For example, a user might wish to define CircuitTypes named
     "Long Haul," "Metro," or "Out-of-Band".
     """
+    color = ColorField(
+        default=ColorChoices.COLOR_GREY
+    )
     def get_absolute_url(self):
         return reverse('circuits:circuittype', args=[self.pk])
 

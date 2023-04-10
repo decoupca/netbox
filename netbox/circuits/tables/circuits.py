@@ -25,6 +25,7 @@ class CircuitTypeTable(NetBoxTable):
     name = tables.Column(
         linkify=True
     )
+    color = columns.ColorColumn()
     tags = columns.TagColumn(
         url_name='circuits:circuittype_list'
     )
@@ -37,7 +38,7 @@ class CircuitTypeTable(NetBoxTable):
         fields = (
             'pk', 'id', 'name', 'circuit_count', 'description', 'slug', 'tags', 'created', 'last_updated', 'actions',
         )
-        default_columns = ('pk', 'name', 'circuit_count', 'description', 'slug')
+        default_columns = ('pk', 'name', 'circuit_count', 'color', 'description', 'slug')
 
 
 class CircuitTable(TenancyColumnsMixin, ContactsColumnMixin, NetBoxTable):

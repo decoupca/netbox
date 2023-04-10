@@ -29,6 +29,12 @@
             <td>{{ object.description|placeholder }}</td>
           </tr>
           <tr>
+            <th scope="row">Color</th>
+            <td>
+              <span class="badge color-label" style="background-color: #{{ object.color }}">&nbsp;</span>
+            </td>
+          </tr>
+          <tr>
             <th scope="row">Circuits</th>
             <td>
               <a href="{% url 'circuits:circuit_list' %}?type_id={{ object.pk }}">{{ circuits_table.rows|length }}</a>
